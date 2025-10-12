@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+html { scroll-behavior: smooth; }
+
+body { font-family: 'Inter', sans-serif; background-color: #F0F0F0; }
+
+/* Animations */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in-up { animation: fadeInUp 1s ease forwards; }
+.fade-in-up.delay-200 { animation-delay: 0.2s; }
+.fade-in-up.delay-400 { animation-delay: 0.4s; }
+.fade-in-up.delay-600 { animation-delay: 0.6s; }
+
+/* Gradient background for cards */
+.bg-card-gradient { background: linear-gradient(135deg, #B6CEB4 0%, #D9E9CF 100%); }
+
+/* Hover lift effect */
+.hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.hover-lift:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 12px 20px rgba(0,0,0,0.2); }
