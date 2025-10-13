@@ -1,33 +1,52 @@
 import React from "react";
+import { motion } from "framer-motion";
+import saqib from "../assets/saqib.jpg"; // change extension if needed
 
-export default function Home() {
+const Home = () => {
+  const name = "S A Q I B".split(" ");
+
   return (
-    <section
-      id="home"
-      className="flex flex-col justify-center items-center text-center space-y-4 px-6 sm:px-12 py-24 rounded-xl
-                 bg-gradient-to-b from-[#B6CEB4] to-[#D9E9CF]"
-      style={{ paddingTop: '120px' }} // optional extra padding if navbar is tall
-    >
-      <h1 className="text-5xl sm:text-6xl font-bold text-[#6FA4AF] fade-in-up">
-        Hi, I’m Saqib
+    <section className="min-h-screen flex flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-[#D9E9CF] to-[#F0F0F0]">
+      {/* Centered Image */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        className="mb-8"
+      >
+        <img
+          src={saqib}
+          alt="Saqib"
+          className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full shadow-lg border-4 border-[#B6CEB4]"
+        />
+      </motion.div>
+
+      {/* Animated Name */}
+      <h1 className="text-5xl md:text-7xl font-bold mb-4">
+        {name.map((letter, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.3, duration: 0.5 }}
+            className="inline-block text-[#6FA4AF] hover:text-[#96A78D] transition-colors duration-300"
+          >
+            {letter}
+          </motion.span>
+        ))}
       </h1>
 
-      <h2 className="text-2xl text-[#D97D55] fade-in-up delay-200">
-        Computer Science Student & Frontend Developer
-      </h2>
-
-      <p className="max-w-xl text-gray-700 leading-relaxed fade-in-up delay-400">
-        I build modern, responsive web applications with React, Node.js, and MongoDB. I’m passionate
-        about design, interactivity, and creating meaningful digital experiences.
-      </p>
-
-      <a
-        href="#skills-projects"
-        className="mt-4 inline-block bg-[#6FA4AF] text-white px-6 py-3 rounded-full shadow-lg 
-                   hover:bg-[#D97D55] hover:shadow-xl transform hover:scale-105 transition"
+      {/* Subtitle */}
+      <motion.p
+        className="text-lg md:text-2xl font-medium text-[#5c6b57]"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2 }}
       >
-        View My Work
-      </a>
+        Computer Science Student
+      </motion.p>
     </section>
   );
-}
+};
+
+export default Home;
