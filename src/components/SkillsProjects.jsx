@@ -1,82 +1,137 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB", "C", "C++", "GitHub", "Tailwind CSS"];
+// 🧩 Import skill icons
+import html from "../assets/html.png";
+import css from "../assets/css.png";
+import js from "../assets/js.png";
+import react from "../assets/physics.png"; // this is your React logo
+import nodejs from "../assets/node-js.png"; // correct file name includes dash
+import mongodb from "../assets/mongodb.png";
+import tailwind from "../assets/tailwind.png";
+import firebase from "../assets/firebase.png";
+import c from "../assets/c.png";
+import express from "../assets/express.png";
+import cpp from "../assets/c++.png";
+import github from "../assets/github.png";
+
+// 🧩 Import project thumbnails
+import quizwhiz from "../assets/quizwhiz.png";
+import iot from "../assets/iot.png";
+import mobileapp from "../assets/mobileapp.png";
+import donationbd from "../assets/donationbd.png";
+
+
+const skills = [
+  { name: "HTML", icon: html },
+  { name: "CSS", icon: css },
+  { name: "JavaScript", icon: js },
+  { name: "React", icon: react },
+  { name: "Node.js", icon: nodejs },
+  { name: "Express.js", icon: express },
+  { name: "MongoDB", icon: mongodb },
+  { name: "Tailwind CSS", icon: tailwind },
+  { name: "Firebase", icon: firebase },
+  { name: "C", icon: c },
+  { name: "C++", icon: cpp },
+  { name: "GitHub", icon: github },
+];
 
 const projects = [
   {
-    title: "Web-based Educational Platform (Frontend & Database Focus)",
-    desc: "Built a full-stack platform using React and MongoDB for MCQ-based exams with secure authentication, focusing on frontend development and database management for real-time data handling and a responsive user interface.",
-    linkText: "Quiz Whiz Educational Platform",
-    link: "https://quiz-whiz-frontend.vercel.app/"
+    title: "Quiz Whiz – Web-based Educational Platform",
+    tech: "React, Node.js, MongoDB, Express.js",
+    img: quizwhiz,
+    link: "https://quiz-whiz-frontend.vercel.app/",
   },
   {
     title: "IoT-Based Smart Street Light System",
-    desc: "Developed a smart street light system using Arduino, IR sensors, and ESP8266 WiFi for vehicle detection and remote light monitoring via a web dashboard.",
-    linkText: "GitHub Repository",
-    link: "https://github.com/Saqib-17/smart-street-light-project"
+    tech: "Arduino, IR Sensors, ESP8266 WiFi",
+    img: iot,
+    github: "https://github.com/Saqib-17/smart-street-light-project",
   },
   {
-    title: "Quiz-based Educational Mobile App (Team Lead & Developer)",
-    desc: "Developed using React Native with a Node.js and MongoDB backend for synchronized data management. Successfully deployed and published as a running Android app.",
-    linkText: "GitHub Repository",
-    link: "https://github.com/Saqib-17/QuizWhiz-Mobile-App"
+    title: "QuizWhiz Mobile App – Educational App",
+    tech: "React Native, Expo, Node.js, Express.js, MongoDB",
+    img: mobileapp,
+    link: "https://github.com/Saqib-17/QuizWhiz-Mobile-App",
+  },
+  {
+    title: "Donation BD – Charity & Fundraising Platform",
+    tech: "React, Node.js, Express.js, MongoDB, Tailwind CSS, Firebase",
+    img: donationbd,
+    link: "https://donationbd.vercel.app/",
   },
 ];
 
 export default function SkillsProjects() {
   return (
-    <section id="skills-projects" className="py-16 bg-[#B6CEB4]">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        {/* Skills Section */}
+    <section id="projects" className="skills-section">
+      <div className="container">
+        {/* 🔧 Skills Section */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl font-bold text-[#4b6043] mb-8"
+          className="section-title"
         >
-          Skills
+          Skills & Tools
         </motion.h2>
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
+
+        <div className="skills-grid">
           {skills.map((skill, i) => (
-            <span
+            <motion.div
               key={i}
-              className="bg-[#96A78D] text-white px-4 py-2 rounded-xl text-sm hover:scale-105 transition"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
+              className="skill-item"
             >
-              {skill}
-            </span>
+              <img src={skill.icon} alt={skill.name} className="skill-icon" />
+              <span>{skill.name}</span>
+            </motion.div>
           ))}
         </div>
 
-        {/* Projects Section */}
+        {/* 💻 Projects Section */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl font-bold text-[#4b6043] mb-8"
+          className="section-title mt-16"
         >
-          Projects
+          Featured Projects
         </motion.h2>
 
-        <div className="space-y-6">
+        <div className="project-grid">
           {projects.map((p, i) => (
-            <div
+            <motion.div
               key={i}
-              className="bg-[#D9E9CF] p-6 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition"
+              className="project-card"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.15, duration: 0.6 }}
             >
-              <h3 className="text-xl font-semibold text-[#4b6043] mb-2">{p.title}</h3>
-              <p className="text-[#333] mb-3">{p.desc}</p>
-              {p.link && (
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#6FA4AF] font-medium hover:underline"
-                >
-                  {p.linkText}
-                </a>
-              )}
-            </div>
+              <div className="project-image-wrapper">
+                <img src={p.img} alt={p.title} className="project-image" />
+              </div>
+              <div className="project-content">
+                <h3>{p.title}</h3>
+                <p className="tech">{p.tech}</p>
+                <div className="project-links">
+                  {p.link && (
+                    <a href={p.link} target="_blank" className="btn-primary-sm">
+                      Live Link
+                    </a>
+                  )}
+                  {p.github && (
+                    <a href={p.github} target="_blank" className="btn-outline">
+                      GitHub
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
