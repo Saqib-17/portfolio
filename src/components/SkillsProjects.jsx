@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import html from "../assets/html.png";
@@ -25,6 +25,13 @@ import iot from "../assets/iot.png";
 import mobileapp from "../assets/mobileapp.png";
 import donationbd from "../assets/donationbd.png";
 
+import ss01 from "../assets/ss01.png";
+import ss02 from "../assets/ss02.png";
+import ss03 from "../assets/ss03.png";
+import ss04 from "../assets/ss04.png";
+import ss05 from "../assets/ss05.png";
+import ss06 from "../assets/ss06.png";
+
 const skills = [
   { name: "HTML", icon: html },
   { name: "CSS", icon: css },
@@ -47,7 +54,7 @@ const projects = [
     title: "Quiz Whiz – Web-based Educational Platform",
     tech: "React, Node, MongoDB, Express, Firebase, Tailwind",
     img: quizwhiz,
-    link: "https://quiz-whiz-frontend.vercel.app/",
+    github: "https://github.com/Saqib-17/QuizWhiz-Frontend",
   },
   {
     title: "IoT-Based Smart Street Light System",
@@ -59,21 +66,26 @@ const projects = [
     title: "Donation BD – Charity & Fundraising Platform",
     tech: "React, Node, Express, MongoDB, Tailwind, Firebase",
     img: donationbd,
-    link: "https://donationbd.vercel.app/",
+    github: "https://github.com/Saqib-17/Donation-BD-Frontend",
   },
   {
     title: "QuizWhiz Mobile App – Educational App",
     tech: "React Native, Expo, Node, Express, Firebase, MongoDB",
     img: mobileapp,
-    link: "https://github.com/Saqib-17/QuizWhiz-Mobile-App",
+    github: "https://github.com/Saqib-17/QuizWhiz-Mobile-App",
+    drive:
+      "https://drive.google.com/file/d/1IexOYfIYzKe7QeHKx27_2SvXTigHdZSS/view?usp=sharing",
+    screenshots: [ss01, ss02, ss03, ss04, ss05, ss06],
   },
 ];
 
 export default function SkillsProjects() {
+  const [selectedImages, setSelectedImages] = useState([]);
+
   return (
     <section id="projects" className="skills-section">
       <div className="container">
-        {/* 🔧 Skills Section (untouched) */}
+        {/* Skills Section */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +110,7 @@ export default function SkillsProjects() {
           ))}
         </div>
 
-        {/* 💻 Projects Section */}
+        {/* Projects Section */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -205,23 +217,34 @@ export default function SkillsProjects() {
                       );
                     })}
                   </div>
-                  <div className="flex gap-2 mt-3">
-                    {p.link && (
-                      <a
-                        href={p.link}
-                        target="_blank"
-                        className="px-4 py-1 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 text-sm"
-                      >
-                        Live Link
-                      </a>
-                    )}
+
+                  <div className="flex flex-wrap gap-2 mt-3">
                     {p.github && (
                       <a
                         href={p.github}
                         target="_blank"
-                        className="px-4 py-1 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition-colors duration-300 text-sm"
+                        className="px-4 py-1 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 text-sm"
                       >
                         GitHub
+                      </a>
+                    )}
+
+                    {p.screenshots && (
+                      <button
+                        onClick={() => setSelectedImages(p.screenshots)}
+                        className="px-4 py-1 border border-gray-400 text-gray-700 rounded-full hover:bg-gray-100 transition-colors duration-300 text-sm"
+                      >
+                        Screenshots
+                      </button>
+                    )}
+
+                    {p.drive && (
+                      <a
+                        href={p.drive}
+                        target="_blank"
+                        className="px-4 py-1 border border-green-600 text-green-600 rounded-full hover:bg-green-50 transition-colors duration-300 text-sm"
+                      >
+                        Download APK
                       </a>
                     )}
                   </div>
@@ -230,6 +253,39 @@ export default function SkillsProjects() {
             );
           })}
         </div>
+
+        {/* Screenshot Modal (Phone-style layout) */}
+        {selectedImages.length > 0 && (
+          <div className="fixed inset-0 bg-black/70 flex flex-col items-center justify-center p-4 z-50">
+            <div className="bg-white p-6 rounded-2xl max-w-5xl w-full overflow-y-auto max-h-[85vh]">
+              <h3 className="text-xl font-semibold mb-6 text-center">
+                App Screenshots
+              </h3>
+              <div className="flex flex-wrap justify-center gap-8">
+                {selectedImages.map((img, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-black rounded-[2rem] w-52 h-[28rem] flex items-center justify-center shadow-md"
+                  >
+                    <img
+                      src={img}
+                      alt={`screenshot-${idx}`}
+                      className="h-full object-cover rounded-[1.5rem]"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-center mt-6">
+                <button
+                  onClick={() => setSelectedImages([])}
+                  className="px-5 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
