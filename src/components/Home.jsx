@@ -1,13 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import saqib from "../assets/saqib.jpg"; 
+import saqib from "../assets/saqib.jpg"; // update if needed
 
 const Home = () => {
   const name = "S A Q I B".split(" ");
 
   return (
-    <section id="home" className="min-h-screen flex flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-[#D9E9CF] to-[#F0F0F0]">
-
+    <section className="min-h-screen flex flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-[#D9E9CF] to-[#F0F0F0]">
       {/* Profile Image */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
@@ -54,7 +53,7 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2 }}
       >
-        Computer Science Student
+        Developer and Tech Enthusiast
       </motion.p>
     </section>
   );
