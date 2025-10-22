@@ -83,7 +83,7 @@ export default function SkillsProjects() {
   const [selectedImages, setSelectedImages] = useState([]);
 
   return (
-    <section id="projects" className="skills-section">
+    <section id="skills" className="skills-section">
       <div className="container">
         {/* Skills Section */}
         <motion.h2
@@ -120,7 +120,7 @@ export default function SkillsProjects() {
           Featured Projects
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
+        <div id="projects" className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
           {projects.map((p, i) => {
             const isLastSingle =
               i === projects.length - 1 && projects.length % 3 === 1;
