@@ -54,7 +54,7 @@ const projects = [
     title: "Quiz Whiz – Web-based Educational Platform",
     tech: "React, Node, MongoDB, Express, Firebase, Tailwind",
     img: quizwhiz,
-    github: "https://github.com/Saqib-17/QuizWhiz-Frontend",
+    live: "https://quiz-whiz-frontend.vercel.app/",
   },
   {
     title: "IoT-Based Smart Street Light System",
@@ -66,7 +66,7 @@ const projects = [
     title: "Donation BD – Charity & Fundraising Platform",
     tech: "React, Node, Express, MongoDB, Tailwind, Firebase",
     img: donationbd,
-    github: "https://github.com/Saqib-17/Donation-BD-Frontend",
+    live: "https://donation-client-six.vercel.app/",
   },
   {
     title: "QuizWhiz Mobile App – Educational App",
@@ -226,6 +226,16 @@ export default function SkillsProjects() {
                         className="px-4 py-1 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 text-sm"
                       >
                         GitHub
+                      </a>
+                    )}
+
+                    {p.live && (
+                      <a
+                        href={p.live}
+                        target="_blank"
+                        className="px-4 py-1 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors duration-300 text-sm"
+                      >
+                        Live Link
                       </a>
                     )}
 
