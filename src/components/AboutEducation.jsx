@@ -19,9 +19,7 @@ export default function AboutEducation() {
           transition={{ duration: 0.8 }}
           className="text-lg leading-relaxed"
         >
-          I’m Md. Shahidul Islam Sakib, a Computer Science and Engineering student passionate about
-          front-end development and IoT systems. I enjoy designing responsive interfaces and exploring
-          new technologies to bring ideas to life.
+         I’m Md. Shahidul Islam Sakib, a CSE enthusiast focused on crafting responsive websites and innovative IoT systems. I turn concepts into functional, user-friendly experiences.
         </motion.p>
       </div>
 
