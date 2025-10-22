@@ -191,3 +191,14 @@ body.dark-mode section {
 section {
   transition: background 0.6s ease, color 0.6s ease;
 }
+body.dark-mode .bg-white {
+  background-color: #1a1a1a !important;
+  color: #e8f0e2 !important;
+  border: 1px solid #2a2a2a !important;
+}
+body.dark-mode .text-gray-600 {
+  color: #ccc !important;
+}
+body.dark-mode .text-[#4b6043] {
+  color: #b4d4a1 !important;
+}
