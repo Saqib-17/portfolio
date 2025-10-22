@@ -1,12 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import saqib from "../assets/saqib.jpg"; // update if needed
+import saqib from "../assets/saqib.jpg"; 
 
 const Home = () => {
   const name = "S A Q I B".split(" ");
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-[#D9E9CF] to-[#F0F0F0]">
+    <section
+      id="home"  // 👈 this is the fix
+      className="min-h-screen flex flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-[#D9E9CF] to-[#F0F0F0]"
+    >
       {/* Profile Image */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
