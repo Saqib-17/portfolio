@@ -20,7 +20,7 @@ import {
   SiArduino,
 } from "react-icons/si";
 
-
+// (these PNGs are still fine to keep if you use them elsewhere later)
 import arduinoIcon from "../assets/arduino.png";
 import irsensorIcon from "../assets/irsensor.png";
 import espIcon from "../assets/esp.png";
@@ -29,6 +29,9 @@ import quizwhiz from "../assets/quizwhiz.png";
 import iot from "../assets/iot.png";
 import mobileapp from "../assets/mobileapp.png";
 import donationbd from "../assets/donationbd.png";
+
+import greenEarth from "../assets/green-earth.png";
+import flowerMart from "../assets/flower-mart.png";
 
 import ss01 from "../assets/ss01.png";
 import ss02 from "../assets/ss02.png";
@@ -42,12 +45,12 @@ const skills = [
   { name: "CSS", Icon: SiCss3 },
   { name: "JavaScript", Icon: SiJavascript },
   { name: "React", Icon: SiReact },
-  { name: "Next.js", Icon: SiNextdotjs },      
+  { name: "Next.js", Icon: SiNextdotjs },
   { name: "Node.js", Icon: SiNodedotjs },
-  { name: "Express.js", Icon: SiNodedotjs },  
+  { name: "Express.js", Icon: SiNodedotjs },
   { name: "MongoDB", Icon: SiMongodb },
   { name: "Tailwind CSS", Icon: SiTailwindcss },
-  { name: "Firebase", Icon: SiFirebase },    
+  { name: "Firebase", Icon: SiFirebase },
   { name: "C", Icon: SiC },
   { name: "C++", Icon: SiCplusplus },
   { name: "GitHub", Icon: SiGithub },
@@ -55,6 +58,25 @@ const skills = [
   { name: "Expo", Icon: SiExpo },
 ];
 
+// tech label → icon map (for project pills)
+const techIconMap = {
+  React: SiReact,
+  "React Native": SiReact,
+  "Next.js": SiNextdotjs,
+  Node: SiNodedotjs,
+  MongoDB: SiMongodb,
+  Express: SiNodedotjs,
+  Tailwind: SiTailwindcss,
+  Firebase: SiFirebase,
+  C: SiC,
+  "C++": SiCplusplus,
+  Arduino: SiArduino,
+  JavaScript: SiJavascript,
+  HTML: SiHtml5,
+  CSS: SiCss3,
+  Expo: SiExpo,
+  // things like JSON, Vercel, API, Netlify will just show text only (no icon)
+};
 
 const projects = [
   {
@@ -83,6 +105,22 @@ const projects = [
     drive:
       "https://drive.google.com/file/d/1IexOYfIYzKe7QeHKx27_2SvXTigHdZSS/view?usp=sharing",
     screenshots: [ss01, ss02, ss03, ss04, ss05, ss06],
+  },
+  // 🌱 Green Earth
+  {
+    title: "Green Earth – Eco Campaign Platform",
+    tech: "Next.js, React, Tailwind, JSON, Vercel",
+    img: greenEarth,
+    live: "https://green-earth-ebon.vercel.app/",
+    github: "https://github.com/Saqib-17/Green-Earth.git",
+  },
+  // 🌸 Flower Mart
+  {
+    title: "Flower Mart – Online Flower Shop",
+    tech: "React, Tailwind, React Router, Netlify, API",
+    img: flowerMart,
+    live: "https://flower-mart.netlify.app/",
+    github: "https://github.com/Saqib-17/Flower-Mart.git",
   },
 ];
 
@@ -147,7 +185,7 @@ const Home = () => {
         </motion.p>
       </section>
 
-      {/* ABOUT + EDUCATION (copied exactly from AboutEducation.jsx) */}
+      {/* ABOUT + EDUCATION (same as your original) */}
       <section id="about" className="pt-28 pb-16 bg-[#D9E9CF]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.h2
@@ -207,7 +245,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SKILLS + PROJECTS (copied exactly from SkillsProjects.jsx) */}
+      {/* SKILLS + PROJECTS (same structure & classes as you gave) */}
       <section id="skills" className="skills-section">
         <div className="container">
           {/* Skills Section */}
@@ -220,22 +258,20 @@ const Home = () => {
             Skills & Tools
           </motion.h2>
 
-<div className="skills-grid">
-  {skills.map((skill, i) => (
-    <motion.div
-      key={i}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: i * 0.05 }}
-      className="skill-item"
-    >
-      <skill.Icon className="skill-icon" />  
-      <span>{skill.name}</span>
-    </motion.div>
-  ))}
-</div>
-
-
+          <div className="skills-grid">
+            {skills.map((skill, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                className="skill-item"
+              >
+                <skill.Icon className="skill-icon" />
+                <span>{skill.name}</span>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Projects Section */}
           <motion.h2
@@ -274,75 +310,33 @@ const Home = () => {
                   </div>
                   <div className="project-content p-4 flex flex-col gap-2">
                     <h3 className="text-lg font-semibold">{p.title}</h3>
+
+                    {/* Tech pills (same design, dynamic icons) */}
                     <div className="flex flex-wrap gap-2 mt-1">
-  {p.tech.split(", ").map((t, idx) => {
-    let IconComp = null;
+                      {p.tech.split(", ").map((t, idx) => {
+                        const label = t.trim();
+                        const IconComp = techIconMap[label] || null;
 
-    switch (t.trim()) {
-      case "React":
-      case "React Native":
-        IconComp = SiReact;
-        break;
-      case "Expo":
-        IconComp = SiExpo;
-        break;
-      case "Node":
-        IconComp = SiNodedotjs;
-        break;
-      case "MongoDB":
-        IconComp = SiMongodb;
-        break;
-      case "Express":
-        IconComp = SiNodedotjs;       
-        break;
-      case "Tailwind":
-        IconComp = SiTailwindcss;
-        break;
-      case "Firebase":
-        IconComp = SiFirebase;
-        break;
-      case "C":
-        IconComp = SiC;
-        break;
-      case "C++":
-        IconComp = SiCplusplus;
-        break;
-      case "Arduino":
-        IconComp = SiArduino;
-        break;
-      case "JavaScript":
-        IconComp = SiJavascript;
-        break;
-      case "HTML":
-        IconComp = SiHtml5;
-        break;
-      case "CSS":
-        IconComp = SiCss3;
-        break;
-      default:
-        IconComp = null;
-    }
-
-    return (
-      <span
-        key={idx}
-        className="flex items-center gap-1 text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full"
-      >
-        {IconComp && (
-          <IconComp className="w-3 h-3 object-contain" />
-        )}
-        {t}
-      </span>
-    );
-  })}
-</div>
-
+                        return (
+                          <span
+                            key={idx}
+                            className="flex items-center gap-1 text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full"
+                          >
+                            {IconComp && (
+                              <IconComp className="w-3 h-3 object-contain" />
+                            )}
+                            {label}
+                          </span>
+                        );
+                      })}
+                    </div>
 
                     <div className="flex flex-wrap gap-2 mt-3">
                       {p.github && (
                         <a
                           href={p.github}
                           target="_blank"
+                          rel="noreferrer"
                           className="px-4 py-1 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 text-sm"
                         >
                           GitHub
@@ -353,6 +347,7 @@ const Home = () => {
                         <a
                           href={p.live}
                           target="_blank"
+                          rel="noreferrer"
                           className="px-4 py-1 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors duration-300 text-sm"
                         >
                           Live Link
@@ -372,6 +367,7 @@ const Home = () => {
                         <a
                           href={p.drive}
                           target="_blank"
+                          rel="noreferrer"
                           className="px-4 py-1 border border-green-600 text-green-600 rounded-full hover:bg-green-50 transition-colors duration-300 text-sm"
                         >
                           Download APK
