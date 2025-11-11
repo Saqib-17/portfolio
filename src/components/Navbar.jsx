@@ -12,7 +12,6 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
       }`}
     >
       <div className="flex justify-between items-center px-6 py-3 md:py-4">
-        {/* Desktop Links */}
         <div className="hidden md:flex gap-12 mx-auto">
           {links.map((link) => (
             <a
@@ -26,7 +25,6 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
           ))}
         </div>
 
-        {/* 🌗 Neumorphic Light/Dark Mode Toggle */}
         <button
           onClick={toggleDarkMode}
           className={`relative w-40 h-12 flex items-center rounded-full p-1 transition-all duration-500 ${
@@ -35,7 +33,6 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
               : "bg-[#e6e6e6] text-gray-700 shadow-[6px_6px_12px_#bebebe,-6px_-6px_12px_#ffffff]"
           }`}
         >
-          {/* Label (light/dark) */}
           {!darkMode ? (
             <span className="absolute right-6 text-xs font-bold tracking-wide">
               LIGHT MODE
@@ -45,8 +42,6 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
               DARK MODE
             </span>
           )}
-
-          {/* Knob */}
           <span
             className={`absolute top-1 w-10 h-10 rounded-full flex items-center justify-center text-lg transition-all duration-500 ease-in-out ${
               darkMode
@@ -62,7 +57,6 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
           </span>
         </button>
 
-        {/* Mobile Hamburger */}
         <button
           className="md:hidden text-3xl focus:outline-none relative z-50"
           onClick={() => setOpen(!open)}
@@ -85,7 +79,6 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden flex flex-col items-center backdrop-blur-md rounded-b-2xl shadow-lg transition-max-height duration-500 overflow-hidden ${
           open

@@ -199,6 +199,6 @@ body.dark-mode .bg-white {
 body.dark-mode .text-gray-600 {
   color: #ccc !important;
 }
-body.dark-mode .text-[#4b6043] {
+body.dark-mode .text-\[\#4b6043\] {
   color: #b4d4a1 !important;
 }

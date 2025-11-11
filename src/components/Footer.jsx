@@ -8,7 +8,6 @@ export default function ContactFooter() {
       id="contact"
       className="relative bg-[#96A78D] text-[#F3F7F0] py-24 px-10 md:px-20 overflow-hidden flex flex-col justify-center items-center text-center"
     >
-      {/* Subtle texture overlay */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.08 }}
@@ -16,9 +15,8 @@ export default function ContactFooter() {
         className="absolute inset-0 bg-[url('/noise-texture.png')] bg-cover opacity-10"
       ></motion.div>
 
-      {/* Back to Top */}
       <motion.a
-        href="#top"
+        href="#home"
         whileHover={{ scale: 1.05 }}
         className="absolute top-8 right-8 text-xs font-semibold text-[#F3F7F0]/90 flex items-center gap-2 hover:text-white transition-all"
       >
@@ -28,9 +26,7 @@ export default function ContactFooter() {
         </span>
       </motion.a>
 
-      {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center justify-center gap-6 min-h-[40vh]">
-        {/* Text block */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,24 +45,11 @@ export default function ContactFooter() {
           LET’S CONNECT
         </motion.h2>
 
-        {/* Animated Social Buttons */}
         <div className="flex flex-wrap justify-center gap-5 mt-4">
-          {[
-            {
-              href: "https://github.com/Saqib-17",
-              icon: <Github size={18} />,
-              label: "GITHUB",
-            },
-            {
-              href: "https://www.linkedin.com/in/saqib1712",
-              icon: <Linkedin size={18} />,
-              label: "LINKEDIN",
-            },
-            {
-              href: "mailto:shahidul.sakib17@gmail.com",
-              icon: <Mail size={18} />,
-              label: "EMAIL",
-            },
+          {[ 
+            { href: "https://github.com/Saqib-17", icon: <Github size={18} />, label: "GITHUB" },
+            { href: "https://www.linkedin.com/in/saqib1712", icon: <Linkedin size={18} />, label: "LINKEDIN" },
+            { href: "mailto:shahidul.sakib17@gmail.com", icon: <Mail size={18} />, label: "EMAIL" },
           ].map((link, i) => (
             <motion.a
               key={i}
@@ -89,7 +72,6 @@ export default function ContactFooter() {
           ))}
         </div>
 
-        {/* Copyright (centered under links) */}
         <footer className="mt-8 text-sm text-[#F3F7F0]/70">
           © {new Date().getFullYear()} Md. Shahidul Islam Sakib. All Rights Reserved.
         </footer>
