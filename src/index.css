@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 @import "tailwindcss";
-
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; background-color: #F0F0F0; color: #333; }
 
 .container {
   max-width: 1100px;
@@ -152,14 +154,14 @@ body { font-family: 'Inter', sans-serif; background-color: #F0F0F0; color: #333;
   .project-card { max-width: 95%; }
   .btn-primary-sm, .btn-outline { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
 }
-/* 🌤 Light mode (default) */
+/*  Light mode (default) */
 body {
   background: linear-gradient(to bottom right, #D9E9CF, #F0F0F0);
   color: #333;
   transition: background 0.5s, color 0.5s;
 }
 
-/* 🌙 Dark mode */
+/*  Dark mode */
 body.dark-mode {
   background: linear-gradient(to bottom right, #1c1c1c, #2e2e2e);
   color: #e8f0e2;

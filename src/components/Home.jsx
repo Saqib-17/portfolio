@@ -20,7 +20,6 @@ import {
   SiArduino,
 } from "react-icons/si";
 
-// (these PNGs are still fine to keep if you use them elsewhere later)
 import arduinoIcon from "../assets/arduino.png";
 import irsensorIcon from "../assets/irsensor.png";
 import espIcon from "../assets/esp.png";
@@ -58,7 +57,7 @@ const skills = [
   { name: "Expo", Icon: SiExpo },
 ];
 
-// tech label → icon map (for project pills)
+// tech label 
 const techIconMap = {
   React: SiReact,
   "React Native": SiReact,
@@ -75,7 +74,7 @@ const techIconMap = {
   HTML: SiHtml5,
   CSS: SiCss3,
   Expo: SiExpo,
-  // things like JSON, Vercel, API, Netlify will just show text only (no icon)
+
 };
 
 const projects = [
@@ -106,21 +105,19 @@ const projects = [
       "https://drive.google.com/file/d/1IexOYfIYzKe7QeHKx27_2SvXTigHdZSS/view?usp=sharing",
     screenshots: [ss01, ss02, ss03, ss04, ss05, ss06],
   },
-  // 🌱 Green Earth
+  // Green Earth
   {
     title: "Green Earth – Eco Campaign Platform",
     tech: "Next.js, React, Tailwind, JSON, Vercel",
     img: greenEarth,
     live: "https://green-earth-ebon.vercel.app/",
-    github: "https://github.com/Saqib-17/Green-Earth.git",
   },
-  // 🌸 Flower Mart
+  // Flower Mart
   {
     title: "Flower Mart – Online Flower Shop",
     tech: "React, Tailwind, React Router, Netlify, API",
     img: flowerMart,
     live: "https://flower-mart.netlify.app/",
-    github: "https://github.com/Saqib-17/Flower-Mart.git",
   },
 ];
 
@@ -130,7 +127,7 @@ const Home = () => {
 
   return (
     <>
-      {/* HERO SECTION (unchanged) */}
+      {/* HERO SECTION  */}
       <section
         id="home"
         className="min-h-screen flex flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-[#D9E9CF] to-[#F0F0F0]"
@@ -185,7 +182,7 @@ const Home = () => {
         </motion.p>
       </section>
 
-      {/* ABOUT + EDUCATION (same as your original) */}
+      {/* ABOUT + EDUCATION  */}
       <section id="about" className="pt-28 pb-16 bg-[#D9E9CF]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.h2
@@ -245,7 +242,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SKILLS + PROJECTS (same structure & classes as you gave) */}
+      {/* SKILLS + PROJECTS */}
       <section id="skills" className="skills-section">
         <div className="container">
           {/* Skills Section */}
@@ -311,7 +308,7 @@ const Home = () => {
                   <div className="project-content p-4 flex flex-col gap-2">
                     <h3 className="text-lg font-semibold">{p.title}</h3>
 
-                    {/* Tech pills (same design, dynamic icons) */}
+                    {/* Tech pills  */}
                     <div className="flex flex-wrap gap-2 mt-1">
                       {p.tech.split(", ").map((t, idx) => {
                         const label = t.trim();
